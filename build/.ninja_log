@@ -1,0 +1,5 @@
+# ninja log v7
+0	22	1788254027174666367	CMakeFiles/OpenGLTut.dir/src/main.cpp.o	ec1eb27ab74b4f22
+1	57	1788254027175666338	CMakeFiles/OpenGLTut.dir/src/glad.c.o	fa4ae4ae49299a38
+0	36	1788254135031246566	OpenGLTut	95ccc8dcc5f44cd5
+1	38	1788254277102230499	OpenGLTut	8554053644e0cacf
