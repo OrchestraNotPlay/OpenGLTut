@@ -59,6 +59,14 @@ build CMakeFiles/OpenGLTut.dir/src/glad.c.o: C_COMPILER__OpenGLTut_unscanned_ /h
   OBJECT_FILE_DIR = CMakeFiles/OpenGLTut.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/OpenGLTut.dir
 
+build CMakeFiles/OpenGLTut.dir/src/shader.cpp.o: CXX_COMPILER__OpenGLTut_unscanned_ /home/orchnp/OpenGLTut/src/shader.cpp || cmake_object_order_depends_target_OpenGLTut
+  DEP_FILE = CMakeFiles/OpenGLTut.dir/src/shader.cpp.o.d
+  FLAGS = -Wall -Werror -Wextra -Wpedantic -Weffc++ -std=gnu++17
+  INCLUDES = -I/home/orchnp/OpenGLTut/include
+  OBJECT_DIR = CMakeFiles/OpenGLTut.dir
+  OBJECT_FILE_DIR = CMakeFiles/OpenGLTut.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/OpenGLTut.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target OpenGLTut
@@ -67,7 +75,7 @@ build CMakeFiles/OpenGLTut.dir/src/glad.c.o: C_COMPILER__OpenGLTut_unscanned_ /h
 #############################################
 # Link the executable OpenGLTut
 
-build OpenGLTut: CXX_EXECUTABLE_LINKER__OpenGLTut_ CMakeFiles/OpenGLTut.dir/src/main.cpp.o CMakeFiles/OpenGLTut.dir/src/glad.c.o
+build OpenGLTut: CXX_EXECUTABLE_LINKER__OpenGLTut_ CMakeFiles/OpenGLTut.dir/src/main.cpp.o CMakeFiles/OpenGLTut.dir/src/glad.c.o CMakeFiles/OpenGLTut.dir/src/shader.cpp.o
   DEP_FILE = CMakeFiles/OpenGLTut.dir/link.d
   FLAGS = -Wall -Werror -Wextra -Wpedantic -Weffc++
   LINK_FLAGS = -Wl,--dependency-file=CMakeFiles/OpenGLTut.dir/link.d
