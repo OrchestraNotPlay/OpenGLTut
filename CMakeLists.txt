@@ -11,6 +11,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -march=native -DNDEB
 set(SOURCES
   src/main.cpp
   src/glad.c
+  src/shader.cpp
 )
 
 add_executable(OpenGLTut ${SOURCES})
