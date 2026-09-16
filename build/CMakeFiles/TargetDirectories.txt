@@ -1,3 +1,0 @@
-/home/orchnp/OpenGLTut/build/CMakeFiles/OpenGLTut.dir
-/home/orchnp/OpenGLTut/build/CMakeFiles/edit_cache.dir
-/home/orchnp/OpenGLTut/build/CMakeFiles/rebuild_cache.dir
