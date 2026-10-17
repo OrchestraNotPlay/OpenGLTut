@@ -1,6 +1,9 @@
 // openGl headers
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 // texture loading header
 #define STB_IMAGE_IMPLEMENTATION
@@ -12,24 +15,6 @@
 
 // stdlib headers
 #include <iostream>
-
-const char *vertexShaderSource = "#version 330 core\n"
-                                 "layout (location = 0) in vec3 aPos;\n"
-                                 "layout (location = 1) in vec3 aColor;\n"
-                                 "out vec3 vertexColor;\n"
-                                 "void main()\n"
-                                 "{\n"
-                                 " gl_Position = vec4(aPos, 1.0);\n"
-                                 " vertexColor = aColor;\n"
-                                 "}\0";
-
-const char *fragmentShaderSource = "#version 330 core\n"
-                                   "out vec4 FragColor;\n"
-                                   "in vec3 vertexColor;\n"
-                                   "void main()\n"
-                                   "{\n"
-                                   "FragColor = vec4(vertexColor, 1.0f);\n"
-                                   "}\0";
 
 int main() {
   // glfw initialization
@@ -66,7 +51,6 @@ int main() {
       -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // bottom left
       -0.5f, 0.5f,  0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f  // top left
   };
-
   unsigned int indices[] = {0, 1, 3, 1, 2, 3};
 
   unsigned int VBO, VAO, EBO;
@@ -155,8 +139,17 @@ int main() {
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, texture2);
 
+    glm::mat4 trans = glm::mat4(1.0f);
+    trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+    trans =
+        glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+
     // triangle draw
     shader.use();
+
+    unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
+    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
